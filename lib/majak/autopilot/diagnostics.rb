@@ -5,7 +5,7 @@ module Majak
 
       def self.run
         check_environment_variables
-        #check_gps_server
+        check_gps_server
         #check_waypoints
         #check_tiller_motor
       end
@@ -15,9 +15,15 @@ module Majak
       def self.check_environment_variables
         Autopilot::REQUIRED_ENV.each do |env|
           unless ENV[env]
-            raise MissingEnvironmentVariable
+            raise MissingEnvironmentVariable, env
           end
         end
+      end
+
+      def self.check_gps_server
+        uri = URI.parse ENV['GPS_SERVER_URI']
+        #puts uri.inspect
+        x =TCPSocket.open 'localhost', 3000
       end
     end
   end

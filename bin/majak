@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'majak'
+require 'majak/cli'
+
+Majak::CLI::Base.start

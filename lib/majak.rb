@@ -1,4 +1,5 @@
 require "majak/autopilot"
+require "majak/route"
 require "majak/version"
 require "majak/waypoint"
 
